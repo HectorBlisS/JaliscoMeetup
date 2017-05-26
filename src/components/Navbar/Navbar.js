@@ -3,6 +3,8 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import AppBar from 'material-ui/AppBar';
 import { Link } from 'react-router-dom';
+import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
+
 
 class Navbar extends Component {
     constructor(props) {
@@ -25,6 +27,9 @@ class Navbar extends Component {
                 />
 
                 <Drawer docked={false} open={this.state.open}>
+                    <Toolbar>
+                        <ToolbarTitle text="FixterGeek" />
+                    </Toolbar>
                     <Link to="/">
                     <MenuItem onTouchTap={this.handleClose}>
 
