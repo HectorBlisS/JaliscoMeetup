@@ -4,7 +4,14 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 
 
-const HomePAge = () => {
+class HomePAge extends React.Component {
+
+    componentWillMount () {
+        alert('ño');
+        // this.props.history.push('about');
+    }
+
+    render(){
     return(
 
         <div>
@@ -19,6 +26,7 @@ const HomePAge = () => {
         </div>
 
     );
+    }
 };
 
 export default HomePAge;
