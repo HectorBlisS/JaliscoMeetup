@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -14,5 +15,11 @@ const Main = () => (
     </MuiThemeProvider>
 );
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+const WithRouter = () => (
+    <BrowserRouter>
+        <Main />
+    </BrowserRouter>
+);
+
+ReactDOM.render(<WithRouter />, document.getElementById('root'));
 registerServiceWorker();
