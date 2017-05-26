@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.svg';
 import RaisedButton from 'material-ui/RaisedButton';
-import Login from './components/login/login.js'
+
+import Rutas from './Rutas';
+import Navbar from './components/Navbar/Navbar';
+
 
 
 
@@ -10,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
@@ -18,7 +22,9 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
           <RaisedButton label="Primary" primary={true} />
-          <Login />
+
+          <Navbar />
+          <Rutas />
 
       </div>
     );
