@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import RaisedButton from 'material-ui/RaisedButton';
+import Login from './components/login/login.js'
 
 
 
@@ -17,6 +18,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
           <RaisedButton label="Primary" primary={true} />
+          <Login />
+
       </div>
     );
   }
