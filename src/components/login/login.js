@@ -27,6 +27,7 @@ class LoginComponent extends React.Component{
   }
 
   loginGoogle = () => {
+    const { history } = this.props;
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
 
@@ -34,7 +35,7 @@ class LoginComponent extends React.Component{
 
       let user = result.user;
       console.log(user);
-        this.props.history.push('about');
+        history.push('advise');
     }).catch(function(error) {
 
       let errorCode = error.code;
@@ -47,14 +48,15 @@ class LoginComponent extends React.Component{
     });
   }
   loginFacebook = () => {
-    const provider = new firebase.auth.FacebookAuthProvider();
+      const { history } = this.props;
+      const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
 
       let token = result.credential.accessToken;
 
       let user = result.user;
       console.log(user);
-      this.props.history.push('advise');
+        history.push('advise');
     }).catch(function(error) {
 
       let errorCode = error.code;
