@@ -55,6 +55,13 @@ class Navbar extends Component {
 
                     </MenuItem>
                       </Link>
+                    <Link to="advise">
+                        <MenuItem onTouchTap={this.handleClose}>
+
+                            Recomendar
+
+                        </MenuItem>
+                    </Link>
 
 
                 </Drawer>
