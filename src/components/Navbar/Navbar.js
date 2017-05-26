@@ -11,6 +11,8 @@ class Navbar extends Component {
     }
 
     handleToggle = () => this.setState({open: !this.state.open});
+    handleClose = () => this.setState({open: false});
+
 
     render(){
         return(
@@ -22,17 +24,21 @@ class Navbar extends Component {
 
                 />
 
-                <Drawer open={this.state.open}>
-                    <MenuItem>
-                        <Link to="/">
+                <Drawer docked={false} open={this.state.open}>
+                    <Link to="/">
+                    <MenuItem onTouchTap={this.handleClose}>
+
                         Home
-                        </Link>
+
                     </MenuItem>
-                    <MenuItem>
-                        <Link to="about">
+                    </Link>
+                    <Link to="about">
+                    <MenuItem onTouchTap={this.handleClose}>
+
                             About
-                        </Link>
+
                     </MenuItem>
+                    </Link>
                 </Drawer>
 
 
