@@ -8,7 +8,7 @@ class HomePAge extends React.Component {
 
     componentWillMount () {
         alert('ño');
-        // this.props.history.push('about');
+        this.props.history.push('about');
     }
 
     render(){

@@ -19,7 +19,13 @@ const styles = {
 };
 
 
+
+
 class LoginComponent extends React.Component{
+  constructor(props){
+    super(props);
+  }
+
   loginGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -27,7 +33,8 @@ class LoginComponent extends React.Component{
       let token = result.credential.accessToken;
 
       let user = result.user;
-      // ...
+      console.log(user);
+        this.props.history.push('about');
     }).catch(function(error) {
 
       let errorCode = error.code;
@@ -46,7 +53,8 @@ class LoginComponent extends React.Component{
       let token = result.credential.accessToken;
 
       let user = result.user;
-
+      console.log(user);
+      this.props.history.push('advise');
     }).catch(function(error) {
 
       let errorCode = error.code;
@@ -55,16 +63,18 @@ class LoginComponent extends React.Component{
       let email = error.email;
 
       let credential = error.credential;
-      // ...
+
+
     });
   }
+
 
   render(){
     return(
       <div>
       <Paper style={style} zDepth={1} rounded={false}>
 
-        <h2>Únete a la mejor comunidad de recomendaciones de Jalisco 😜</h2>
+        <h2>Únete a la mejor comunidad de recomendaciones de Jalisco <span>😜</span></h2>
         <RaisedButton
           target="_blank"
           label="Inicia con Google"
