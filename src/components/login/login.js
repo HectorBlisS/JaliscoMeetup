@@ -1,9 +1,10 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
+import * as firebase from 'firebase';
 
 const style = {
-  height: 400,
+  height: 300,
   width: 400,
   margin: 20,
   textAlign: 'center',
@@ -17,20 +18,69 @@ const styles = {
   }
 };
 
-class Login extends React.Component{
+
+class LoginComponent extends React.Component{
+  loginGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+
+      let token = result.credential.accessToken;
+
+      let user = result.user;
+      // ...
+    }).catch(function(error) {
+
+      let errorCode = error.code;
+      let errorMessage = error.message;
+
+      let email = error.email;
+
+      let credential = error.credential;
+
+    });
+  }
+  loginFacebook = () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+
+      let token = result.credential.accessToken;
+
+      let user = result.user;
+
+    }).catch(function(error) {
+
+      let errorCode = error.code;
+      let errorMessage = error.message;
+
+      let email = error.email;
+
+      let credential = error.credential;
+      // ...
+    });
+  }
 
   render(){
     return(
       <div>
       <Paper style={style} zDepth={1} rounded={false}>
 
-        <h2>Inicia y ...</h2>
+        <h2>Únete a la mejor comunidad de recomendaciones de Jalisco 😜</h2>
         <RaisedButton
           target="_blank"
-          label="Github Link"
+          label="Inicia con Google"
           secondary={true}
           fullWidth={true}
           style={styles.button}
+          onTouchTap={this.loginGoogle}
+        />
+        <h3>O</h3>
+        <RaisedButton
+          target="_blank"
+          label="Inicia con Facebook"
+          primary={true}
+          fullWidth={true}
+          style={styles.button}
+          onTouchTap={this.loginFacebook}
         />
         </Paper>
       </div>
@@ -38,4 +88,15 @@ class Login extends React.Component{
   }
 }
 
-export default Login;
+export default LoginComponent;
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCxNl7FKKXcKQWtel9zcqbUgdIq6GPTQfg",
+    authDomain: "recommendationsreact.firebaseapp.com",
+    databaseURL: "https://recommendationsreact.firebaseio.com",
+    projectId: "recommendationsreact",
+    storageBucket: "recommendationsreact.appspot.com",
+    messagingSenderId: "1018583225121"
+}
+const firebaseApp = firebase.initializeApp(firebaseConfig);
