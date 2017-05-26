@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './logo.svg';
-import RaisedButton from 'material-ui/RaisedButton';
 
 import Rutas from './Rutas';
 import Navbar from './components/Navbar/Navbar';
